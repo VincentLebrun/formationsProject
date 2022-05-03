@@ -1,12 +1,29 @@
 package fr.afpa.formations.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Session {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "session_seq")
+    @SequenceGenerator(name = "session_seq", initialValue = 1000, allocationSize = 1)
+    private Long id;
+
+    private String moduleList;
+    private String internList;
+    private String place;
+    private Date startDate;
+    private Date finishDate;
+    @ManyToOne
+    @JoinColumn(name="formations_id")
+    private Formation formation;
+    @OneToMany(mappedBy = "session" )
+    private List<Student> students;
 }
