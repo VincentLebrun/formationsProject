@@ -14,6 +14,7 @@ public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "session_seq")
     @SequenceGenerator(name = "session_seq", initialValue = 1000, allocationSize = 1)
+
     private Long id;
 
     private String moduleList;
@@ -26,4 +27,7 @@ public class Session {
     private Formation formation;
     @OneToMany(mappedBy = "session" )
     private List<Student> students;
+    @ManyToOne
+    @JoinColumn(name = "form_module_id")
+    private FormModule formModule;
 }
