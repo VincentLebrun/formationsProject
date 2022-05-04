@@ -12,8 +12,8 @@
                 <h4>Welcome </h4>
             </div>
             <div class="d-grid gap-2 m-2">
-                <a class="btn btn-secondary" href="/contact">Contact</a>
-                <a class="btn btn-secondary" href="/info">Info</a>
+                <a class="btn btn-secondary" href="/center">Centre</a>
+                <a class="btn btn-secondary" href="/center-form">Ajout de centre</a>
                 <a class="btn btn-secondary" href="/addresses">Adresses</a>
             </div>
         </div>
