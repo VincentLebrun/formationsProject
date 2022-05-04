@@ -10,10 +10,14 @@ import java.util.List;
 //ajouter dans les services et repo pas dans le model voyons
 
 
-@Entity
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Getter
+@Setter
+@ToString
+@Entity
 public class Center {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "center_seq")
@@ -23,7 +27,7 @@ public class Center {
 
     private String name;
     private String address;
-    private String listForm;
+    private String form;
     @OneToMany(mappedBy = "center")
     private List<Formation> formations;
 
