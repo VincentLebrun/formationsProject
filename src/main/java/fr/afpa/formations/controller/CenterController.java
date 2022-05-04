@@ -1,7 +1,6 @@
 package fr.afpa.formations.controller;
 
 import fr.afpa.formations.model.Center;
-import fr.afpa.formations.repository.CenterRepository;
 
 import fr.afpa.formations.service.CenterService;
 import org.springframework.stereotype.Controller;
@@ -17,13 +16,13 @@ import java.util.List;
 @Controller
 public class CenterController {
 
-    private final CenterRepository centerRepository;
+
     private final CenterService centerService;
 
-    public CenterController(CenterRepository centerRepository, CenterService centerService) {
-        this.centerRepository = centerRepository;
+    public CenterController(CenterService centerService) {
         this.centerService = centerService;
     }
+
 
     @GetMapping("/center")
     public String findCenter(Model model) {
@@ -32,11 +31,18 @@ public class CenterController {
         return "center";
     }
 
-    @PostMapping("addCenter")
+    @PostMapping("/add-center")
     public String addCenter(@ModelAttribute Center center) {
         centerService.save(center);
-        return "redirect:/";
+        return "redirect:/center";
 
+    }
+
+    @GetMapping("/center-form")
+    public String formCenterPage(Model model) {
+        Center center = new Center();
+        model.addAttribute("center" , center);
+        return "formCenter";
     }
 
 }
