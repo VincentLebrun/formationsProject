@@ -10,7 +10,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class FormModule {
+public class Module {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "module_seq")
     @SequenceGenerator(name = "module_seq", initialValue = 1000, allocationSize = 1)
