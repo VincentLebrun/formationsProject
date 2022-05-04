@@ -1,2 +1,4 @@
-package fr.afpa.formations.controller;public class Center {
+package fr.afpa.formations.controller;
+
+public class Center {
 }
