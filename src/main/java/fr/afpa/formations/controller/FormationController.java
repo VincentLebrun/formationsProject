@@ -1,2 +1,4 @@
-package fr.afpa.formations.controller;public class FormationController {
+package fr.afpa.formations.controller;
+
+public class FormationController {
 }
