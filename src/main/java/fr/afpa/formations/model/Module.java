@@ -1,6 +1,7 @@
 package fr.afpa.formations.model;
 
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,6 +11,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Module {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "module_seq")
