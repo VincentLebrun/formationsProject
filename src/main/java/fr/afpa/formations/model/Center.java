@@ -4,13 +4,12 @@ package fr.afpa.formations.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 import java.util.List;
 //ajouter dans les services et repo pas dans le model voyons
 
-@Slf4j
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
