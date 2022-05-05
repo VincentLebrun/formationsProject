@@ -1,5 +1,6 @@
 package fr.afpa.formations.service;
 // import model
+
 import fr.afpa.formations.model.Center;
 //import repository
 import fr.afpa.formations.repository.CenterRepository;
@@ -23,4 +24,9 @@ public class CenterService {
     public void save(Center center) {
         centerRepository.save(center);
     }
+
+    public Center getCenterById(Long id) {
+        return centerRepository.getById(id);
+    }
+
 }
