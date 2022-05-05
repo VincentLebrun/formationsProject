@@ -13,7 +13,7 @@ public class CenterService {
 
     private final CenterRepository centerRepository;
 
-    public CenterService(CenterRepository centerRepository) {
+    public CenterService(CenterRepository centerRepository {
         this.centerRepository = centerRepository;
     }
 
