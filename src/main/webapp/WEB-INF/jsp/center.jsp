@@ -14,7 +14,8 @@
             <div class="d-grid gap-2 m-2">
                 <a class="btn btn-secondary" href="/center">Centre</a>
                 <a class="btn btn-secondary" href="/center-form">Ajout de centre</a>
-                <a class="btn btn-secondary" href="/addresses">Adresses</a>
+                <a class="btn btn-secondary" href="/formation">Liste des formations</a>
+                <a class="btn btn-secondary" href="/formation-form">Ajout d une formation</a>
             </div>
         </div>
     </div>
