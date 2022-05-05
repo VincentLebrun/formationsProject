@@ -11,7 +11,6 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Module {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "module_seq")
