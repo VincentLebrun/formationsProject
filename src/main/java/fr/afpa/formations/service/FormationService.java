@@ -19,4 +19,13 @@ public class FormationService {
         return formationRepository.findAll();
     }
 
+    public void saveFormation(Formation formation) {
+        formationRepository.save(formation);
+    }
+
+    public Formation getFormationById( Long id) {
+        return  formationRepository.getById(id);
+    }
+
+
 }
