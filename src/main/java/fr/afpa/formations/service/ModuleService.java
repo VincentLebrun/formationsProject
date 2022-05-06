@@ -15,8 +15,8 @@ public class ModuleService {
     public List<Module> getAllModule() {
         return moduleRepository.findAll();
     }
-    public void saveModule(Module module){
-        moduleRepository.save(module);
+    public Module saveModule(Module module){
+       return moduleRepository.save(module);
     }
 
 }
