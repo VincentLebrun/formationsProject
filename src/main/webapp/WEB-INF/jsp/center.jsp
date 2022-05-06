@@ -16,6 +16,8 @@
                 <a class="btn btn-secondary" href="/center-form">Ajout de centre</a>
                 <a class="btn btn-secondary" href="/formation">Liste des formations</a>
                 <a class="btn btn-secondary" href="/formation-form">Ajout d une formation</a>
+                <a class="btn btn-secondary" href="/module-form">Ajout d un Module</a>
+                 <a class="btn btn-secondary" href="/formation-form">Ajout d une formation</a>
             </div>
         </div>
     </div>

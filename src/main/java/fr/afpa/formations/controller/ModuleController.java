@@ -7,10 +7,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-
 
 
 @Controller
@@ -21,10 +21,21 @@ public class ModuleController {
     @GetMapping("/module")
     public String findModule(Model model) {
         List<Module> modules = moduleService.getAllModule();
-        model.addAttribute("modules" , modules);
+        model.addAttribute("modules", modules);
         return "showModule";
     }
-    @PostMapping("/")
+
+    @GetMapping("/module-form")
+    public String moduleForm(Model model) {
+        Module module = new Module();
+        return "formModule";
+    }
+
+    @PostMapping("/add-module")
+    public String addModule(@ModelAttribute Module module) {
+        moduleService.saveModule(module);
+        return "redirect:/center";
+    }
 
 
 }
