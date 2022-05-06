@@ -1,5 +1,6 @@
 package fr.afpa.formations.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,5 +24,6 @@ public class Formation {
     @JoinColumn(name ="center_id")
     private Center center;
     @OneToMany(mappedBy = "formation" )
+    @JsonIgnoreProperties("formation")
     private List<Session> sessions;
 }
