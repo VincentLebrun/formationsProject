@@ -17,16 +17,24 @@ public class CenterService {
         this.centerRepository = centerRepository;
     }
 
-    public List<Center> getAll() {
+    public List<Center> getAllCenter() {
         return centerRepository.findAll();
     }
 
-    public void save(Center center) {
-        centerRepository.save(center);
+
+    public Center saveCenter(Center center) {
+        return centerRepository.save(center);
     }
 
     public Center getCenterById(Long id) {
         return centerRepository.getById(id);
     }
+/**
+    public Center updateCenter(Center center) {
+        Center center1 = getCenterById(Center.getId());
+        center1.setName(center.getName());
+    }
+ **/
+
 
 }
