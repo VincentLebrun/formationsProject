@@ -37,12 +37,12 @@ public class CenterController {
         //attention toujours via les services !!
     }
 
-    /**
-    @PutMapping("/update")
-    public Center updateCenter(Model model, @RequestBody Center center) {
 
-    }
-    **/
+    /**
+     @PutMapping("/update") public Center updateCenter(Model model, @RequestBody Center center) {
+
+     }
+     **/
 
 
 }
