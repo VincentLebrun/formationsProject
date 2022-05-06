@@ -11,4 +11,5 @@ import java.util.List;
 public interface CenterRepository extends JpaRepository<Center, Long> {
     @Override
     Center getById(Long aLong);
+
 }
