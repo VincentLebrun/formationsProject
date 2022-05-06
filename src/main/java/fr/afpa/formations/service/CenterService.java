@@ -29,12 +29,14 @@ public class CenterService {
     public Center getCenterById(Long id) {
         return centerRepository.getById(id);
     }
-/**
-    public Center updateCenter(Center center) {
-        Center center1 = getCenterById(Center.getId());
-        center1.setName(center.getName());
-    }
- **/
+
+    /**
+     * public Center updateCenter(Center center) {
+     * Center center1 = getCenterById(Center.getId());
+     * center1.setName(center.getName());
+     * }
+     **/
+
 
 
 }
