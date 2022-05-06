@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 import fr.afpa.formations.model.Module;
 @Repository
 public interface ModuleRepository extends JpaRepository<Module, Long> {
-    @Override
+    /**
+   
     Module getById(Long aLong);
+    **/
 }
