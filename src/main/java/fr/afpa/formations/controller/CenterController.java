@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @RestController
@@ -37,12 +38,14 @@ public class CenterController {
         //attention toujours via les services !!
     }
 
+    @PutMapping("update/{id}")
+    public Center updateCenter(Model model, @PathVariable Center center) {
+        Optional<Center> center1 = centerService.getCenterById(center.getId());
+        model.addAttribute("center" , center);
+        return centerService.saveCenter(center);
+    }
 
-    /**
-     @PutMapping("/update") public Center updateCenter(Model model, @RequestBody Center center) {
 
-     }
-     **/
 
 
 }
