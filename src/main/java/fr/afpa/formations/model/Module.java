@@ -9,6 +9,8 @@ import java.util.List;
 
 @Entity
 @Builder
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Module {
@@ -24,5 +26,6 @@ public class Module {
     private Date endTime;
     @OneToMany(mappedBy = "formModule")
     private List<Session> sessions;
+
 }
 
