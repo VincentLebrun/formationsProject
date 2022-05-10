@@ -8,6 +8,8 @@ import java.util.List;
 
 @Entity
 @Builder
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Session {

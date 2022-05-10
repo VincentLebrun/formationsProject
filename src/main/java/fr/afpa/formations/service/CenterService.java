@@ -4,19 +4,17 @@ package fr.afpa.formations.service;
 import fr.afpa.formations.model.Center;
 //import repository
 import fr.afpa.formations.repository.CenterRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 //import tools
 import java.util.List;
 
 
 @Service
+@RequiredArgsConstructor
 public class CenterService {
 
     private final CenterRepository centerRepository;
-
-    public CenterService(CenterRepository centerRepository) {
-        this.centerRepository = centerRepository;
-    }
 
     public List<Center> getAllCenter() {
         return centerRepository.findAll();
