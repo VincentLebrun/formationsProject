@@ -15,7 +15,7 @@ import java.util.List;
 public class StudentController {
     private final StudentService studentService;
 
-    @GetMapping("list")
+    @GetMapping("/list")
     public List<Student> studentList() {
         return studentService.getAllStudent();
     }
@@ -25,12 +25,12 @@ public class StudentController {
         return studentService.saveStudent(student);
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteStudent(@PathVariable Long id) {
         studentService.deleteStudentById(id);
     }
 
-    @PutMapping("update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity updateStudent(@PathVariable Long id, @RequestBody Student student) {
         Student currentStudent = studentService.getStudentById(id);
         currentStudent.setBirthDate(student.getBirthDate());
