@@ -1,9 +1,9 @@
 package fr.afpa.formations.model;
 
 import lombok.*;
-import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class Module {
     private Long id;
 
     private String discipline;
-    private Date startDiscipline;
+    private Timestamp startDiscipline;
     private Date startTime;
     private Date endTime;
     @OneToMany(mappedBy = "formModule")
