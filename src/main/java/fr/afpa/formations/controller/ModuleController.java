@@ -5,6 +5,7 @@ import fr.afpa.formations.model.Module;
 import fr.afpa.formations.repository.ModuleRepository;
 import fr.afpa.formations.service.ModuleService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,9 +37,15 @@ public class ModuleController {
     }
 
     @PutMapping("/update/{id}")
-    public Module updateModule(@PathVariable("id") Long id, @RequestBody Module module) {
+    public ResponseEntity updateModule(@PathVariable Long id, @RequestBody Module module) {
 
-        return moduleService.saveModule(moduleService.getModuleById(id));
+        Module currentModule = moduleService.getModuleById(id);
+        currentModule.setDiscipline(module.getDiscipline());
+        currentModule.setEndTime(module.getEndTime());
+        currentModule.setStartDiscipline(module.getStartDiscipline());
+        currentModule.setStartTime(module.getStartTime());
+        currentModule = moduleService.saveModule(module);
+        return ResponseEntity.ok(currentModule);
     }
 
 
