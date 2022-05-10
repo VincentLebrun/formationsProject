@@ -6,10 +6,7 @@ import fr.afpa.formations.model.Center;
 import fr.afpa.formations.repository.CenterRepository;
 import org.springframework.stereotype.Service;
 //import tools
-import javax.persistence.EntityNotFoundException;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -25,16 +22,17 @@ public class CenterService {
         return centerRepository.findAll();
     }
 
-
     public Center saveCenter(Center center) {
         return centerRepository.save(center);
+    }
+
+    public void deleteCenterById(Long id) {
+        centerRepository.deleteById(id);
     }
 
     public Center getCenterById(Long id) {
         return centerRepository.findById(id).get();
     }
-
-
 
 
 }
