@@ -20,4 +20,11 @@ public class TutorService {
         return tutorRepository.save(tutor);
     }
 
+    public void deleteTutorById(Long id) {
+        tutorRepository.deleteById(id);
+    }
+
+    public Tutor getTutorById(Long id) {
+        return tutorRepository.findById(id).get();
+    }
 }
