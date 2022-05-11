@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.PostUpdate;
 import java.util.List;
 
 @RestController
@@ -14,7 +13,6 @@ import java.util.List;
 @RequestMapping("/session")
 public class SessionController {
     private final SessionService sessionService;
-
 
     @GetMapping("/list")
     public List<Session> sessionList() {
