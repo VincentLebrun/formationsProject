@@ -11,6 +11,8 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Getter
+@Setter
 public class Tutor {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tutor_seq")
