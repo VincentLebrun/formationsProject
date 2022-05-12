@@ -20,9 +20,7 @@ public class CenterController {
 
     @GetMapping("/")
     List<Center> findCenter() {
-
         return centerService.getAllCenter();
-
     }
 
     @PostMapping("/")
@@ -37,11 +35,9 @@ public class CenterController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity updateCenter(@PathVariable Long id, @RequestBody Center center) {
-        Center currentCenter = centerService.getCenterById(id);
-        currentCenter.setAddress(center.getAddress());
-        currentCenter.setForm(center.getForm());
-        currentCenter.setName(currentCenter.getName());
-        return ResponseEntity.ok(currentCenter);
+    public Center updateCenter(@PathVariable Long id, @RequestBody Center center) {
+       Center currentCenter = centerService.updateCenterById(center, id);
+       return currentCenter;
+
     }
 }
