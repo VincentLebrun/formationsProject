@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Service
 public class ModuleService {
-    private final ModuleRepository  moduleRepository;
+    private final ModuleRepository moduleRepository;
 
     public List<Module> getAllModule() {
         return moduleRepository.findAll();
@@ -27,7 +27,17 @@ public class ModuleService {
     }
 
     public Module getModuleById(Long id) {
-        return moduleRepository.findById(id).orElseThrow(null );
+        return moduleRepository.findById(id).orElseThrow(null);
+    }
+
+    public Module updateModuleById(Module module, Long id) {
+        Module currentModule = getModuleById(id);
+        currentModule.setDiscipline(module.getDiscipline());
+        currentModule.setEndTime(module.getEndTime());
+        currentModule.setStartDiscipline(module.getStartDiscipline());
+        currentModule.setStartTime(module.getStartTime());
+       return saveModule(currentModule);
+
     }
 
 }
