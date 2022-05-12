@@ -27,4 +27,14 @@ public class TutorService {
     public Tutor getTutorById(Long id) {
         return tutorRepository.findById(id).get();
     }
+    public Tutor updateTutorById(Tutor tutor, Long id){
+    Tutor currentTutor = getTutorById(id);
+        currentTutor.setBirthDate(tutor.getBirthDate());
+        currentTutor.setMail(tutor.getMail());
+        currentTutor.setName(tutor.getName());
+        currentTutor.setStartDate(tutor.getStartDate());
+        currentTutor.setSurname(tutor.getSurname());
+        currentTutor.setFormModule(tutor.getFormModule());
+        return saveTutor(currentTutor);
+    }
 }
