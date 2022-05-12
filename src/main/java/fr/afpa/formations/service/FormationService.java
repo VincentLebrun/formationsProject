@@ -19,13 +19,21 @@ public class FormationService {
         return formationRepository.findAll();
     }
 
-    public void saveFormation(Formation formation) {
+    public Formation saveFormation(Formation formation) {
         formationRepository.save(formation);
+        return formation;
     }
 
-    public Formation getFormationById( Long id) {
-        return  formationRepository.getById(id);
+    public Formation getFormationById(Long id) {
+        return formationRepository.getById(id);
     }
 
+    public Formation updateFormationById(Formation formation, Long id) {
+        Formation currentFormation = getFormationById(id);
+        currentFormation.setFormationName(formation.getFormationName());
+        currentFormation.setSessionList(formation.getSessionList());
+        currentFormation.setCenter(formation.getCenter());
+        return  saveFormation(currentFormation);
+    }
 
 }

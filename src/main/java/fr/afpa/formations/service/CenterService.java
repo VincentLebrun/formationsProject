@@ -32,5 +32,13 @@ public class CenterService {
         return centerRepository.findById(id).get();
     }
 
+    public Center updateCenterById(Center center, Long id) {
+        Center currentCenter = getCenterById(id);
+        currentCenter.setAddress(center.getAddress());
+        currentCenter.setForm(center.getForm());
+        currentCenter.setName(currentCenter.getName());
+        return  saveCenter(currentCenter);
+    }
+
 
 }
