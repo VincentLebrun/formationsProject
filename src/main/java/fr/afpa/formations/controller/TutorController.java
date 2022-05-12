@@ -32,15 +32,9 @@ public class TutorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity updateTutor(@PathVariable Long id, @RequestBody Tutor tutor) {
-        Tutor currentTutor = tutorService.getTutorById(id);
-        currentTutor.setBirthDate(tutor.getBirthDate());
-        currentTutor.setMail(tutor.getMail());
-        currentTutor.setName(tutor.getName());
-        currentTutor.setStartDate(tutor.getStartDate());
-        currentTutor.setSurname(tutor.getSurname());
-        currentTutor.setFormModule(tutor.getFormModule());
-        return ResponseEntity.ok(currentTutor);
+    public Tutor updateTutor(@PathVariable Long id, @RequestBody Tutor tutor) {
+        Tutor currentTutor = tutorService.updateTutorById(tutor, id);
+        return currentTutor ;
 
     }
 
