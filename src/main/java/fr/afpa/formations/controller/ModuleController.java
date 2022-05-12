@@ -20,32 +20,27 @@ public class ModuleController {
     private final ModuleService moduleService;
     private final ModuleRepository moduleRepository;
 
-    @GetMapping("/list")
+    @GetMapping("/")
     public List<Module> findModule() {
         return moduleService.getAllModule();
     }
 
-    @PostMapping("/addModule")
+    @PostMapping("/")
     public Module addModule(@RequestBody Module newModule) {
         return moduleService.saveModule(newModule);
 
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteModule(@PathVariable Long id) {
         moduleService.deleteModuleById(id);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity updateModule(@PathVariable Long id, @RequestBody Module module) {
+    @PutMapping("/{id}")
+    public Module updateModule(@PathVariable Long id, @RequestBody Module module) {
+       Module currentModule = moduleService.updateModuleById(module,id);
+        return currentModule;
 
-        Module currentModule = moduleService.getModuleById(id);
-        currentModule.setDiscipline(module.getDiscipline());
-        currentModule.setEndTime(module.getEndTime());
-        currentModule.setStartDiscipline(module.getStartDiscipline());
-        currentModule.setStartTime(module.getStartTime());
-        currentModule = moduleService.saveModule(module);
-        return ResponseEntity.ok(currentModule);
     }
 
 
