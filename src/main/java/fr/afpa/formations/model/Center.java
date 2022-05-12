@@ -16,7 +16,6 @@ import java.util.List;
 @Builder
 @Getter
 @Setter
-@ToString
 @Entity
 public class Center {
     @Id

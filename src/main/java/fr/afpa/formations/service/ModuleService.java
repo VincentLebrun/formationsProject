@@ -6,17 +6,28 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
+
 @Service
 public class ModuleService {
-    private final ModuleRepository moduleRepository;
+    private final ModuleRepository  moduleRepository;
 
     public List<Module> getAllModule() {
         return moduleRepository.findAll();
     }
-    public void saveModule(Module module){
-        moduleRepository.save(module);
+
+    public Module saveModule(Module module) {
+        return moduleRepository.save(module);
+    }
+
+    public void deleteModuleById(Long id) {
+        moduleRepository.deleteById(id);
+    }
+
+    public Module getModuleById(Long id) {
+        return moduleRepository.findById(id).orElseThrow(null );
     }
 
 }

@@ -1,10 +1,10 @@
 package fr.afpa.formations.repository;
 
+import fr.afpa.formations.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import fr.afpa.formations.model.Module;
 
 @Repository
-public interface ModuleRepository extends JpaRepository<Module, Long> {
+public interface StudentRepository extends JpaRepository<Student, Long> {
 
 }

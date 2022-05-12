@@ -2,51 +2,46 @@ package fr.afpa.formations.controller;
 
 import fr.afpa.formations.model.Center;
 
+import fr.afpa.formations.repository.CenterRepository;
 import fr.afpa.formations.service.CenterService;
-import org.springframework.stereotype.Controller;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Slf4j
-@Controller
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/center")
 public class CenterController {
     private final CenterService centerService;
+    private final CenterRepository centerRepository;
 
-    public CenterController(CenterService centerService) {
-        this.centerService = centerService;
+
+    @GetMapping("/")
+    List<Center> findCenter() {
+
+        return centerService.getAllCenter();
+
     }
 
-    @GetMapping("/center")
-    public String findCenter(Model model) {
-        List<Center> centers = centerService.getAll();
-        model.addAttribute("centers", centers);
-        return "center";
+    @PostMapping("/")
+    public Center addCenter(@RequestBody Center center) {
+        return centerService.saveCenter(center);
+        //attention toujours via les services !!
     }
 
-    @PostMapping("/add-center")
-    public String addCenter(@ModelAttribute Center center) {
-        centerService.save(center);
-        return "redirect:/center";
+    @DeleteMapping("/{id}")
+    public void deleteCenter(@PathVariable Long id) {
+        centerService.deleteCenterById(id);
     }
 
-    @GetMapping("/center-form")
-    public String formCenterPage(Model model) {
-        Center center = new Center();
-        model.addAttribute("center", center);
-        return "formCenter";
+    @PutMapping("/{id}")
+    public ResponseEntity updateCenter(@PathVariable Long id, @RequestBody Center center) {
+        Center currentCenter = centerService.getCenterById(id);
+        currentCenter.setAddress(center.getAddress());
+        currentCenter.setForm(center.getForm());
+        currentCenter.setName(currentCenter.getName());
+        return ResponseEntity.ok(currentCenter);
     }
-
-    @GetMapping("center-detail")
-    public String getCenterById(Model model, @RequestParam Long id) {
-        Center center = centerService.getCenterById(id);
-        model.addAttribute("center" , center);
-        return "showCenterId";
-    }
-
 }
