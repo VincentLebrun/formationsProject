@@ -18,7 +18,7 @@ public class StudentService {
     }
 
     public Student saveStudent(Student student) {
-        return  studentRepository.save(student);
+        return studentRepository.save(student);
 
     }
 
@@ -27,7 +27,17 @@ public class StudentService {
     }
 
     public Student getStudentById(Long id) {
-       return  studentRepository.findById(id).get();
+        return studentRepository.findById(id).get();
     }
 
+    public  Student updateStudents(Student student, Long id) {
+        Student currentStudent = getStudentById(id);
+        currentStudent.setBirthDate(student.getBirthDate());
+        currentStudent.setMail(student.getMail());
+        currentStudent.setName(student.getName());
+        currentStudent.setStartDate(student.getStartDate());
+        currentStudent.setSurname(student.getSurname());
+        currentStudent.setSession(student.getSession());
+        return currentStudent;
+    }
 }
