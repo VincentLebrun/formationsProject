@@ -1,4 +1,4 @@
-package fr.afpa.formations.model;
+/**package fr.afpa.formations.model;
 
 import lombok.*;
 
@@ -18,3 +18,4 @@ public class User {
 
 
 }
+**/
