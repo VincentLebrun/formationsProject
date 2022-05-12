@@ -30,4 +30,16 @@ public class SessionService {
         return sessionRepository.findById(id).get();
     }
 
+    public Session updateSessions(Session session, Long id) {
+        Session currentSession = getSessionById(id);
+        currentSession.setFinishDate(session.getFinishDate());
+        currentSession.setInternList(session.getInternList());
+        currentSession.setModuleList(session.getModuleList());
+        currentSession.setPlace(session.getPlace());
+        currentSession.setStartDate(session.getStartDate());
+        currentSession.setFormation(session.getFormation());
+        currentSession.setModuleList(session.getModuleList());
+        return currentSession;
+    }
+
 }
