@@ -15,7 +15,7 @@ public class FormationService {
     }
 
     // show all formations
-    public List<Formation> getAll() {
+    public List<Formation> getAllFormation() {
         return formationRepository.findAll();
     }
 
@@ -28,12 +28,16 @@ public class FormationService {
         return formationRepository.getById(id);
     }
 
+    public void deleteFormationById(Long id) {
+         formationRepository.deleteById(id);
+    }
+
     public Formation updateFormationById(Formation formation, Long id) {
         Formation currentFormation = getFormationById(id);
         currentFormation.setFormationName(formation.getFormationName());
         currentFormation.setSessionList(formation.getSessionList());
         currentFormation.setCenter(formation.getCenter());
-        return  saveFormation(currentFormation);
+        return saveFormation(currentFormation);
     }
 
 }
