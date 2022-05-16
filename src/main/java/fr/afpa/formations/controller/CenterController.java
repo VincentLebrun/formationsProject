@@ -15,8 +15,6 @@ import java.util.List;
 @RequestMapping("/center")
 public class CenterController {
     private final CenterService centerService;
-    private final CenterRepository centerRepository;
-
 
     @GetMapping("/")
     List<Center> findCenter() {
