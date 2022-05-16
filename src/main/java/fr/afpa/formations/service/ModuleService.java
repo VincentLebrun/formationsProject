@@ -4,6 +4,7 @@ import fr.afpa.formations.model.Module;
 import fr.afpa.formations.repository.ModuleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +12,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 
 @Service
+@RequestMapping("/module")
 public class ModuleService {
     private final ModuleRepository moduleRepository;
 
